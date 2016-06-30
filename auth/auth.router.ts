@@ -1,14 +1,15 @@
-import Route from 'expresskit/route';
-import Rule from 'expresskit/rule';
+import {Route, Response} from 'expresskit/route';
+import {Rule} from 'expresskit/rule';
 import {Header, Body} from 'expresskit/property';
-import Auth from 'expresskit/auth';
-import Response from 'expresskit/route/response';
+import {Auth} from 'expresskit/auth';
+import {ResponseType} from 'expresskit/dto';
 
-import {AuthToken} from './authToken.model.ts';
-import {AuthService} from './auth.service.ts';
+import {AuthToken} from './authToken.model';
+import {AuthService} from './auth.service';
 
 export class AuthRouter {
     @Route('POST', '/auth')
+    @ResponseType(AuthToken)
     public static login(@Header('Authorization') authHeader: string): Promise<AuthToken> {
         return AuthService.verifyAndCreateAuthToken(authHeader).then((authToken: AuthToken) => {
           return authToken || new Response(401, 'Login failed'); 
@@ -16,7 +17,7 @@ export class AuthRouter {
     }
 
     @Route('DELETE', '/auth')
-    public static logout(@Auth() authToken: AuthToken): Promise<void> {
+    public static logout(@Auth('User') authToken: AuthToken): Promise<any> {
       return AuthService.clearAuthToken(authToken);
     }
 }

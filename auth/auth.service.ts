@@ -1,8 +1,8 @@
-import AuthHandler from 'expresskit/auth/handler';
-import Response from 'expresskit/route/response';
+import {AuthHandler} from 'expresskit/auth';
+import {Response} from 'expresskit/route';
 import {Header} from 'expresskit/property';
 
-import {AuthToken} from './authToken.model.ts';
+import {AuthToken} from './authToken.model';
 
 export class AuthService {
 
@@ -44,7 +44,7 @@ export class AuthService {
   /**
    * Clears auth for the given token. The AuthToken will no longer be resolved by @Auth()
    */
-  public static clearAuthToken(authToken: AuthToken): Promise<void> {
+  public static clearAuthToken(authToken: AuthToken): Promise<any> {
 
     return new Promise((resolve, reject) => {
 
@@ -98,9 +98,7 @@ export class AuthService {
     });
   }
 
-
-  // TRUE = default auth
-  @AuthHandler('User', true)
+  @AuthHandler('User')
   public static resolveAuth(@Header('Authorization') authHeader: string): Promise<AuthToken> {
     return this.getAuthToken(authHeader).then((authToken: AuthToken) => {
       return authToken || new Response(401, 'Invalid Auth Token');

@@ -6,7 +6,7 @@ export class UserService {
      * Gets the user from the database given the id. If no user is found
      * by the given id, NULL is returned.
      */
-    public static getUser(userId: number): Promise<user> {
+    public static getUser(userId: number): Promise<User> {
         return new Promise((resolve, reject) => {
 
             // Using timeout to simulate db call
@@ -66,7 +66,7 @@ export class UserService {
      * Update user takes a user object with an id and updates the coresponding user
      * in the database. Be sure to validate user ownership before running this method.
      */
-    public static updateUser(update: User): Promise<void> {
+    public static updateUser(update: User): Promise<any> {
          return new Promise((resolve, reject) => {
 
             // Using timeout to simulate db call
