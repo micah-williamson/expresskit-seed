@@ -1,4 +1,4 @@
-import {Validate, ScrubOut} from 'expresskit/dto';
+import {Validate, ScrubOut} from 'expresskit';
 
 export class User {
     @Validate({

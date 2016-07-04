@@ -1,6 +1,4 @@
-import {Auth, AuthHandler} from 'expresskit/auth';
-import {RuleHandler} from 'expresskit/rule';
-import {Param} from 'expresskit/property';
+import {Auth, AuthHandler, RuleHandler, Param} from 'expresskit';
 
 import {Widget} from './widget.model';
 import {AuthToken} from '../auth/authToken.model';

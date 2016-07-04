@@ -1,6 +1,4 @@
-import {AuthHandler} from 'expresskit/auth';
-import {Response} from 'expresskit/route';
-import {Header} from 'expresskit/property';
+import {AuthHandler, Response, Header} from 'expresskit';
 
 import {AuthToken} from './authToken.model';
 

@@ -1,8 +1,4 @@
-import {Route, Response} from 'expresskit/route';
-import {Rule} from 'expresskit/rule';
-import {Param, Body} from 'expresskit/property';
-import {Auth} from 'expresskit/auth';
-import {ResponseType} from 'expresskit/dto';
+import {Route, Response, Rule, Param, Body, Auth, ResponseType} from 'expresskit';
 
 import {User} from './user.model';
 import {UserService} from './user.service';

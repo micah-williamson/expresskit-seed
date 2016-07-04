@@ -1,8 +1,4 @@
-import {Route, Response} from 'expresskit/route';
-import {Rule} from 'expresskit/rule';
-import {Header, Body} from 'expresskit/property';
-import {Auth} from 'expresskit/auth';
-import {ResponseType} from 'expresskit/dto';
+import {Route, Response, Rule, Header, Body, Auth, ResponseType} from 'expresskit';
 
 import {AuthToken} from './authToken.model';
 import {AuthService} from './auth.service';

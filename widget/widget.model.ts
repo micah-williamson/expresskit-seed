@@ -1,4 +1,4 @@
-import {Validate} from 'expresskit/dto';
+import {Validate} from 'expresskit';
 
 export class Widget {
     @Validate({

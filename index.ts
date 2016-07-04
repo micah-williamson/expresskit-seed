@@ -1,5 +1,5 @@
 // Get expresskit
-import Expresskit from 'expresskit';
+import {Expresskit} from 'expresskit';
 
 // Import our routes
 import './auth/auth.router';
