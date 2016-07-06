@@ -1,4 +1,4 @@
-import {AuthHandler, Response, Header} from 'expresskit';
+import {Resolver, Response, Header} from 'expresskit';
 
 import {AuthToken} from './authToken.model';
 
@@ -96,7 +96,7 @@ export class AuthService {
     });
   }
 
-  @AuthHandler('User')
+  @Resolver('Auth')
   public static resolveAuth(@Header('Authorization') authHeader: string): Promise<AuthToken> {
     return this.getAuthToken(authHeader).then((authToken: AuthToken) => {
       return authToken || new Response(401, 'Invalid Auth Token');

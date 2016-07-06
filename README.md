@@ -1,7 +1,7 @@
 Expresskit-Seed
 ---------------
 
-For `Version 0.6.0`.
+For `Version 0.7.0`.
 
 An example [Expresskit](https://github.com/iamchairs/expresskit) server application.
 

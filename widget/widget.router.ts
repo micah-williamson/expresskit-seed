@@ -1,4 +1,4 @@
-import {Route, Response, Rule, Param, Body, Auth, ResponseType} from 'expresskit';
+import {Route, Response, Rule, Param, Body, Resource, ResponseType} from 'expresskit';
 
 import {AuthToken} from '../auth/authToken.model';
 import {Widget} from './widget.model';
@@ -15,7 +15,7 @@ export class WidgetRouter {
 
     @Route('POST', '/widget')
     @ResponseType(Widget)
-    public static createWidget(@Auth() authToken: AuthToken, @Body(Widget) create: Widget): Promise<Widget> {
+    public static createWidget(@Resource('Auth') authToken: AuthToken, @Body(Widget) create: Widget): Promise<Widget> {
         return WidgetService.createWidget(authToken.userId, create);
     }
     

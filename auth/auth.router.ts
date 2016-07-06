@@ -1,4 +1,4 @@
-import {Route, Response, Rule, Header, Body, Auth, ResponseType} from 'expresskit';
+import {Route, Response, Rule, Header, Body, Resource, ResponseType} from 'expresskit';
 
 import {AuthToken} from './authToken.model';
 import {AuthService} from './auth.service';
@@ -13,7 +13,7 @@ export class AuthRouter {
     }
 
     @Route('DELETE', '/auth')
-    public static logout(@Auth('User') authToken: AuthToken): Promise<any> {
+    public static logout(@Resource('Auth') authToken: AuthToken): Promise<any> {
       return AuthService.clearAuthToken(authToken);
     }
 }

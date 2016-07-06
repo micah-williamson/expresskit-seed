@@ -1,4 +1,4 @@
-import {Auth, AuthHandler, RuleHandler, Param} from 'expresskit';
+import {Resource, RuleHandler, Param} from 'expresskit';
 
 import {Widget} from './widget.model';
 import {AuthToken} from '../auth/authToken.model';
@@ -116,7 +116,7 @@ export class WidgetService {
   }
 
   @RuleHandler('IsWidgetOwner')
-  public static isOwner(@Auth() authToken: AuthToken, @Param('id') widgetId: number): Promise<any> {
+  public static isOwner(@Resource('Auth') authToken: AuthToken, @Param('id') widgetId: number): Promise<any> {
     return new Promise((resolve, reject) => {
     
       // Using timeout to simulate db call
